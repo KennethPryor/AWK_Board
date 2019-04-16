@@ -1,0 +1,11 @@
+body {
+    background-image: url('images/2020_kia_telluride.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+#total_table {
+    background: rgba(0, 0, 0, 0.0);
+    color: aliceblue;
+}
