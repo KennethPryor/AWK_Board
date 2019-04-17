@@ -4,65 +4,61 @@
     authDomain: "awk-board.firebaseapp.com",
     databaseURL: "https://awk-board.firebaseio.com",
     projectId: "awk-board",
-    storageBucket: "",
+    storageBucket: "awk-board.appspot.com",
     messagingSenderId: "736569817172"
   };
   firebase.initializeApp(config);
 
+  var database = firebase.database();
 
-function salesperson(name, cars_sold) {
-    this.name = name;
-    this.cars_sold = cars_sold;
-};
+console.log(database);
 
-let Ifeanyi = new salesperson(
-    'Ifeanyi',
-    'XXXXXXXXXXXXXXXXX',
-);
-let Steve = new salesperson(
-    'Steve',
-    '9.5',
-);
-let Pierre = new salesperson(
-    'Pierre',
-    '6',
-);
-let Val = new salesperson(
-    'Val',
-    '3',
-);
-let Queen = new salesperson(
-    'Queen',
-    '2.5',
-);
-let Norris = new salesperson(
-    'Norris',
-    '3.5',
-);
-let Kenny = new salesperson(
-    'Kenny',
-    '0.5',
-);
-let House = new salesperson(
-    'House',
-    '0',
-);
-let JQ = new salesperson(
-    'JQ',
-    '3.5',
-);
+  // Initial Values
+  var name = "";
+  var cars_sold = "";
 
-const salespersonArray = [Ifeanyi, Steve, Pierre, Queen, Norris, Val, Kenny, JQ, House];
+  // Capture Button Click
+  $("#add-user").on("click", function(event) {
+    event.preventDefault();
 
-salespersonArray.forEach(function (i) {
+    // Grabbed values from text-boxes
+    name = $("#name-input").val().trim();
+    cars_sold = $("#cars_sold-input").val().trim();
 
-    $('#salesperson_tbody').append(`
-        <tr>
-            <td>${i.name}</td>
-            <td>${i.cars_sold.replace('[0-9]', 'X')}</td>
-        </tr>
-    `);
-});
+    // Code for "Setting values in the database"
+    database.ref().set({
+      name: name,
+      cars_sold: cars_sold,
+    });
+
+  });
+
+  // Firebase watcher + initial loader HINT: .on("value")
+  database.ref().on("value", function(snapshot) {
+
+    // Log everything that's coming out of snapshot
+    console.log(snapshot.val());
+    console.log(snapshot.val().name);
+    console.log(snapshot.val().cars_sold);
+    // Change the HTML to reflect
+    $("#name-display").text(snapshot.val().name);
+    $("#cars_sold-display").text(snapshot.val().cars_sold);
+
+    // Handle the errors
+  }, function(errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
+
+
+// salespersonArray.forEach(function (i) {
+
+//     $('#salesperson_tbody').append(`
+//         <tr>
+//             <td>${$("#name-display").text(snapshot.val().name)}</td>
+//             <td>${$("#cars_sold-display").text(snapshot.val().cars_sold)}</td>
+//         </tr>
+//     `);
+// });
 
 // day of the month/days in the month
 
