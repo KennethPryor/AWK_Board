@@ -1,7 +1,20 @@
-function salesperson(name,cars_sold) {
+ // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD53WlXc8pGKKZKLtmzlYYqvGgp0FWJA5Q",
+    authDomain: "awk-board.firebaseapp.com",
+    databaseURL: "https://awk-board.firebaseio.com",
+    projectId: "awk-board",
+    storageBucket: "",
+    messagingSenderId: "736569817172"
+  };
+  firebase.initializeApp(config);
+
+
+function salesperson(name, cars_sold) {
     this.name = name;
     this.cars_sold = cars_sold;
 };
+
 let Ifeanyi = new salesperson(
     'Ifeanyi',
     'XXXXXXXXXXXXXXXXX',
@@ -39,9 +52,9 @@ let JQ = new salesperson(
     '3.5',
 );
 
-const salespersonArray = [Ifeanyi,Steve,Pierre,Queen,Norris,Val,Kenny,JQ,House];
+const salespersonArray = [Ifeanyi, Steve, Pierre, Queen, Norris, Val, Kenny, JQ, House];
 
-salespersonArray.forEach(function(i) {
+salespersonArray.forEach(function (i) {
 
     $('#salesperson_tbody').append(`
         <tr>
