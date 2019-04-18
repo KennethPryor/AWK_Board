@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,26 +9,49 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css' />
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
 </head>
+
 <body>
-        <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <input placeholder="Salesperson Name" id="name-input" type="text" class="validate">
-                      <label for="name-input">Name</label>
-                    </div>
-                    <div class="input-field col s6">
-                      <input id="cars_sold-input">Cars Sold</label>
-                    </div>
-                  </div>
-                  <button class="btn waves-effect waves-light" type="submit" id="add-user" name="action">Submit</button>
-                </form>
-              </div>
+    <div class="row">
+        <form class="col s12 m5" id="sold-form">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Salesperson Name" id="name-input" type="text" class="validate">
+                    <label for="name-input">Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="cars_sold-input" placeholder="Number of Cars Sold" type="number" class="validate">
+                    <label for='cars_sold-input'>Cars Sold</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" id="add-user" name="action">Submit</button>
+        </form>
+        <form class="col s12 m5" id="sales_board-form">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Salesperson/s Name" id="salesperson_name-input" type="text" class="validate">
+                    <label for="salesperson_name-input">Salesperson/s</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="John Doe" id="customer_name-input" type="text" class="validate">
+                    <label for="customer_name-input">Customer Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="012345" id="stock_num-input" type="text" class="validate">
+                    <label for="stock_num-input">Stock #</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="2015 Kia Optima" id="trade_in-input" type="text" class="validate">
+                    <label for="trade_in-input">Trade-In Info</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" id="add-user" name="action">Submit</button>
+        </form>
+    </div>
 </body>
 
 <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
-<script src="main.js"></script>
+<script src="js/main.js"></script>
 
 </html>

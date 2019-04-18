@@ -6,6 +6,12 @@ body {
 }
 
 #total_table {
-    background: rgba(0, 0, 0, 0.0);
-    color: aliceblue;
+    background: rgba(255, 0, 0, 0.534);
+    color: rgba(255, 255, 255, 0.959);
+}
+
+#sold-form {
+    background: rgb(255, 255, 255, 0.25);
+    margin: 10px;
+    color: black;
 }
