@@ -66,8 +66,7 @@ $("#add-daily_board").on("click", function (event) {
   });
 });
 
-dailyBoardRef.once('value')
-  .then(function (snapshot) {
+dailyBoardRef.on('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
       var childData = childSnapshot.val();
       $('#daily_board-tbody').append(`
