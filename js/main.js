@@ -1,3 +1,8 @@
+$(document).ready(function(){
+  $('select').formSelect();
+});
+
+
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyD53WlXc8pGKKZKLtmzlYYqvGgp0FWJA5Q",
@@ -19,8 +24,9 @@ var salespersonRef = database.ref('Salespersons');
 var trackingBoardRef = database.ref('tracking_board');
 var dailyBoardRef = database.ref('daily_board');
 
-salespersonRef.once('value')
-  .then(function (snapshot) {
+var salesBySold = salespersonRef.orderByChild('cars_sold');
+
+salesBySold.on('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
       var key = childSnapshot.key;
       var childData = childSnapshot.val();
@@ -67,9 +73,9 @@ $("#add-daily_board").on("click", function (event) {
 });
 
 dailyBoardRef.on('value', function (snapshot) {
-    snapshot.forEach(function (childSnapshot) {
-      var childData = childSnapshot.val();
-      $('#daily_board-tbody').append(`
+  snapshot.forEach(function (childSnapshot) {
+    var childData = childSnapshot.val();
+    $('#daily_board-tbody').append(`
         <tr>
             <td>${childData.salesperson}</td>
             <td>${childData.customer}</td>
@@ -77,8 +83,8 @@ dailyBoardRef.on('value', function (snapshot) {
             <td>${childData.trade}</td>
         </tr>
     `);
-    });
   });
+});
 
 // Firebase watcher + initial loader HINT: .on("value")
 salespersonRef.on("value", function (snapshot) {

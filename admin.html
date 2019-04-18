@@ -25,12 +25,9 @@
         <form class="col s12 m5" id="sales_board-form">
             <div class="row">
                 <h6 class="center">Daily Sales Board Addition</h6>
-                <div class="input-field col s12">
-                    <select multiple>
-                        <option value="" disabled selected>Salesperson/s</option>
-
-                    </select>
-                    <label>Materialize Multiple Select</label>
+                <div class="input-field col s6">
+                    <input placeholder="Salesperson/s Name" id="salesperson_name-input" type="text" class="validate">
+                    <label for="salesperson_name-input">Salesperson/s</label>
                 </div>
                 <div class="input-field col s6">
                     <input placeholder="John Doe" id="customer_name-input" type="text" class="validate">
@@ -43,6 +40,26 @@
                 <div class="input-field col s6">
                     <input placeholder="2015 Kia Optima" id="trade_in-input" type="text" class="validate">
                     <label for="trade_in-input">Trade-In Info</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" id="add-daily_board" name="action">Submit</button>
+        </form>
+        <form class="col s12 m5" id="update_salesperson-form">
+            <div class="row">
+                <h6 class="center">Update Salesperson Sold Counter</h6>
+                <div class="input-field col s6">
+                    <input placeholder="Salesperson/s Name" id="salesperson_name-input" type="text" class="validate">
+                    <label for="salesperson_name-input">Salesperson/s</label>
+                </div>
+                <div class="input-field col s6">
+                    <select>
+                        <option value="0" disabled selected>0</option>
+                        <option value="+1">+1</option>
+                        <option value="+0.5">+0.5</option>
+                        <option value="-0.5">-0.5</option>
+                        <option value="-1">-1</option>
+                    </select>
+                    <label></label>
                 </div>
             </div>
             <button class="btn waves-effect waves-light" type="submit" id="add-daily_board" name="action">Submit</button>

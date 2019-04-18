@@ -16,7 +16,8 @@
     color: rgba(255, 255, 255, 0.959);
 }
 
-#sold-form {
+#sold-form,
+#update_salesperson-form {
     background: rgb(255, 255, 255, 0.25);
     margin: 10px;
     padding: 10px;
