@@ -24,9 +24,6 @@ salespersonRef.once('value')
     snapshot.forEach(function (childSnapshot) {
       var key = childSnapshot.key;
       var childData = childSnapshot.val();
-      console.log('CD' + childData)
-      console.log('Key: ' + key);
-      console.log('Data:' + childData.name);
       $('#salesperson_tbody').append(`
         <tr>
             <td>${childData.name}</td>
@@ -87,10 +84,6 @@ dailyBoardRef.once('value')
 // Firebase watcher + initial loader HINT: .on("value")
 salespersonRef.on("value", function (snapshot) {
 
-  // Log everything that's coming out of snapshot
-  console.log(snapshot.val());
-  console.log(snapshot.val().name);
-  console.log(snapshot.val().cars_sold);
   // Change the HTML to reflect
   $("#name-display").text(snapshot.val().name);
   $("#cars_sold-display").text(snapshot.val().cars_sold);
@@ -113,17 +106,6 @@ trackingBoardRef.on("value", function (snapshot) {
 }, function (errorObject) {
   console.log("Errors handled: " + errorObject.code);
 });
-
-
-// salespersonArray.forEach(function (i) {
-
-//     $('#salesperson_tbody').append(`
-//         <tr>
-//             <td>${$("#name-display").text(snapshot.val().name)}</td>
-//             <td>${$("#cars_sold-display").text(snapshot.val().cars_sold)}</td>
-//         </tr>
-//     `);
-// });
 
 // day of the month/days in the month
 
