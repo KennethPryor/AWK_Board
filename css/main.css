@@ -1,5 +1,11 @@
-body {
+#board-body {
     background-image: url('images/2020_kia_telluride.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;   
+}
+
+#admin-body {
+    background-image: url('images/awk_logo.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     
@@ -13,5 +19,14 @@ body {
 #sold-form {
     background: rgb(255, 255, 255, 0.25);
     margin: 10px;
+    padding: 10px;
     color: black;
+    border: black 1px solid;
+}
+
+#sales_board-form {
+    margin: 10px;
+    padding: 10px;
+    color: black;
+    border: black 1px solid;
 }

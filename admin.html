@@ -10,23 +10,21 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
 </head>
 
-<body>
+<body id="admin-body">
     <div class="row">
-        <form class="col s12 m5" id="sold-form">
+        <form class="col s12 m3" id="sold-form">
             <div class="row">
-                <div class="input-field col s6">
+                <h6 class="center">Create Salesperson</h6>
+                <div class="input-field col s12">
                     <input placeholder="Salesperson Name" id="name-input" type="text" class="validate">
                     <label for="name-input">Name</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="cars_sold-input" placeholder="Number of Cars Sold" type="number" class="validate">
-                    <label for='cars_sold-input'>Cars Sold</label>
                 </div>
             </div>
             <button class="btn waves-effect waves-light" type="submit" id="add-user" name="action">Submit</button>
         </form>
         <form class="col s12 m5" id="sales_board-form">
             <div class="row">
+                <h6 class="center">Daily Sales Board Addition</h6>
                 <div class="input-field col s6">
                     <input placeholder="Salesperson/s Name" id="salesperson_name-input" type="text" class="validate">
                     <label for="salesperson_name-input">Salesperson/s</label>
@@ -44,7 +42,7 @@
                     <label for="trade_in-input">Trade-In Info</label>
                 </div>
             </div>
-            <button class="btn waves-effect waves-light" type="submit" id="add-user" name="action">Submit</button>
+            <button class="btn waves-effect waves-light" type="submit" id="add-daily_board" name="action">Submit</button>
         </form>
     </div>
 </body>
