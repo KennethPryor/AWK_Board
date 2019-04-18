@@ -21,7 +21,6 @@ var name = "";
 var cars_sold = "";
 
 var salespersonRef = database.ref('Salespersons');
-var trackingBoardRef = database.ref('tracking_board');
 var dailyBoardRef = database.ref('daily_board');
 
 var salesBySold = salespersonRef.orderByChild('cars_sold');
@@ -98,22 +97,3 @@ salespersonRef.on("value", function (snapshot) {
   console.log("Errors handled: " + errorObject.code);
 });
 
-trackingBoardRef.on("value", function (snapshot) {
-
-  $("#new-display").text(snapshot.val().new);
-  $("#tracking_new-display").text(snapshot.val().tracking_new);
-  $("#used-display").text(snapshot.val().used);
-  $("#tracking_used-display").text(snapshot.val().tracking_used);
-  $("#total_sold-display").text(snapshot.val().total_sold);
-  $("#tracking_total-display").text(snapshot.val().tracking_total);
-
-  // Handle the errors
-}, function (errorObject) {
-  console.log("Errors handled: " + errorObject.code);
-});
-
-// day of the month/days in the month
-
-// /amount of cars sold
-
-// =tracking number
