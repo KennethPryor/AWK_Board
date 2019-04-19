@@ -12,21 +12,52 @@
 
 <body id="board-body">
     <div class="row">
-        <div class="col s12 m3">
-            <table class="striped" id="salesperson_table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Units Sold</th>
-                    </tr>
-                </thead>
-                <tbody id="salesperson_tbody">
-                </tbody>
-            </table>
-
-        </div>
-        <div class="row">
-            <div class="col s12 m9">
+        <div class="col s12">
+            <div class="col s3">
+                <table class="striped" id="salesperson_table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Units Sold</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salesperson_tbody">
+                    </tbody>
+                </table>
+                <table class="striped" id="total_table">
+                        <thead>
+                            <tr>
+                                <th>Type of Cars</th>
+                                <th>Sold</th>
+                                <th>Tracking</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tracking_board">
+                            <tr>
+                                <td>
+                                    New
+                                </td>
+                                <td id="new-display"></td>
+                                <td id="tracking_new-display"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Used
+                                </td>
+                                <td id="used-display"></td>
+                                <td id="tracking_used-display"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Total
+                                </td>
+                                <td id="total_sold-display"></td>
+                                <td id="tracking_total-display"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+            <div class="col s9">
                 <table class="striped" id="daily_board-table">
                     <thead>
                         <tr>
@@ -39,44 +70,6 @@
                     <tbody id="daily_board-tbody">
                     </tbody>
                 </table>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m3">
-                <table class="striped" id="total_table">
-                    <thead>
-                        <tr>
-                            <th>Type of Cars</th>
-                            <th>Sold</th>
-                            <th>Tracking</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tracking_board">
-                        <tr>
-                            <td>
-                                New
-                            </td>
-                            <td id="new-display"></td>
-                            <td id="tracking_new-display"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Used
-                            </td>
-                            <td id="used-display"></td>
-                            <td id="tracking_used-display"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Total
-                            </td>
-                            <td id="total_sold-display"></td>
-                            <td id="tracking_total-display"></td>
-                        </tr>
-                    </tbody>
-                </table>
-
             </div>
         </div>
     </div>
