@@ -11,47 +11,47 @@
 </head>
 
 <body id="board-body">
+    <div class="row">
+        <div class="col s12 m3">
+            <table class="striped" id="salesperson_table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Units Sold</th>
+                    </tr>
+                </thead>
+                <tbody id="salesperson_tbody">
+                    <tr>
+                        <td id="name-display"></td>
+                        <td id="cars_sold-display"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
         <div class="row">
-            <div class="col s12 m3">
-                <table class="striped" id="salesperson_table">
+            <div class="col s12 m9">
+                <table class="striped" id="daily_board-table">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Units Sold</th>
+                            <th>Salesperson/s</th>
+                            <th>Customer Name</th>
+                            <th>Stock #</th>
+                            <th>Trade Info</th>
                         </tr>
                     </thead>
-                    <tbody id="salesperson_tbody">
+                    <tbody id="daily_board-tbody">
                         <tr>
                             <td id="name-display"></td>
                             <td id="cars_sold-display"></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
 
             </div>
-        <div class="row">
-                <div class="col s12 m9">
-                    <table class="striped" id="daily_board-table">
-                        <thead>
-                            <tr>
-                                <th>Salesperson/s</th>
-                                <th>Customer Name</th>
-                                <th>Stock #</th>
-                                <th>Trade Info</th>
-                            </tr>
-                        </thead>
-                        <tbody id="daily_board-tbody">
-                            <tr>
-                                <td id="name-display"></td>
-                                <td id="cars_sold-display"></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-    
-                </div>
-            </div>
+        </div>
         <div class="row">
             <div class="col s12 m3">
                 <table class="striped" id="total_table">
@@ -89,10 +89,33 @@
 
             </div>
         </div>
+        <form class="col s10 push-s1" id="sales_board-form">
+            <div class="row">
+                <h6 class="center">Daily Sales Board Addition</h6>
+                <div class="input-field col s6">
+                    <input placeholder="Salesperson/s Name" id="salesperson_name-input" type="text" class="validate">
+                    <label for="salesperson_name-input">Salesperson/s</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="John Doe" id="customer_name-input" type="text" class="validate">
+                    <label for="customer_name-input">Customer Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="012345" id="stock_num-input" type="text" class="validate">
+                    <label for="stock_num-input">Stock #</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="2015 Kia Optima" id="trade_in-input" type="text" class="validate">
+                    <label for="trade_in-input">Trade-In Info</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" id="add-daily_board" name="action">Submit</button>
+        </form>
     </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js'></script>
 <script src="js/main.js"></script>
 <script src="js/tracking.js"></script>
