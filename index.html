@@ -21,10 +21,6 @@
                     </tr>
                 </thead>
                 <tbody id="salesperson_tbody">
-                    <tr>
-                        <td id="name-display"></td>
-                        <td id="cars_sold-display"></td>
-                    </tr>
                 </tbody>
             </table>
 
@@ -41,12 +37,6 @@
                         </tr>
                     </thead>
                     <tbody id="daily_board-tbody">
-                        <tr>
-                            <td id="name-display"></td>
-                            <td id="cars_sold-display"></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
                     </tbody>
                 </table>
 
@@ -100,11 +90,19 @@
                     <input placeholder="John Doe" id="customer_name-input" type="text" class="validate">
                     <label for="customer_name-input">Customer Name</label>
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s4">
+                        <select id="new_or_used-input">
+                          <option value="undefined" disabled selected>Choose your option</option>
+                          <option value="new">New</option>
+                          <option value="used">Used</option>
+                        </select>
+                        <label>New or Used</label>
+                </div>
+                <div class="input-field col s4">
                     <input placeholder="012345" id="stock_num-input" type="text" class="validate">
                     <label for="stock_num-input">Stock #</label>
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s4">
                     <input placeholder="2015 Kia Optima" id="trade_in-input" type="text" class="validate">
                     <label for="trade_in-input">Trade-In Info</label>
                 </div>

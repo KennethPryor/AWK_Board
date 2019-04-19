@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
   $('select').formSelect();
 });
 
@@ -20,23 +20,26 @@ var database = firebase.database();
 var name = "";
 var cars_sold = "";
 
+
+var trackingBoardRef = database.ref('tracking_board');
+var trackingBoardNewRef = database.ref('tracking_board/new');
 var salespersonRef = database.ref('Salespersons');
 var dailyBoardRef = database.ref('daily_board');
 
 var salesBySold = salespersonRef.orderByChild('cars_sold');
 
 salesBySold.on('value', function (snapshot) {
-    snapshot.forEach(function (childSnapshot) {
-      var key = childSnapshot.key;
-      var childData = childSnapshot.val();
-      $('#salesperson_tbody').append(`
+  snapshot.forEach(function (childSnapshot) {
+    var key = childSnapshot.key;
+    var childData = childSnapshot.val();
+    $('#salesperson_tbody').append(`
         <tr>
             <td>${childData.name}</td>
             <td>${childData.cars_sold}</td>
         </tr>
     `);
-    });
   });
+});
 
 // Capture Button Click
 $("#add-user").on("click", function (event) {
@@ -59,6 +62,7 @@ $("#add-daily_board").on("click", function (event) {
   // Grabbed values from text-boxes
   salesperson = $("#salesperson_name-input").val().trim();
   customer = $("#customer_name-input").val().trim();
+  new_or_used = $('#new_or_used-input option:selected').text();
   stock_num = $("#stock_num-input").val().trim();
   trade = $("#trade_in-input").val().trim();
 

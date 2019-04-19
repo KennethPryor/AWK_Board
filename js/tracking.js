@@ -10,7 +10,6 @@ console.log(trackingBoardRef);
 // /amount of cars sold
 
 // =tracking number
-function tracking_boardRefresh() {
     trackingBoardRef.on("value", function (snapshot) {
     // Tracking New
         let dayDividedByMonth = current_date/days_in_month;
@@ -42,5 +41,3 @@ function tracking_boardRefresh() {
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
     })
-
-};
