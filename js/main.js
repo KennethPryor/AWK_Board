@@ -34,36 +34,12 @@ salesBySold.on('value', function (snapshot) {
     var key = childSnapshot.key;
     var childData = childSnapshot.val();
 
-    let dayDividedByMonth = current_date/days_in_month;
-    let tracking_sold_math = childData.cars_sold/dayDividedByMonth;
-
     $('#salesperson_tbody').append(`
         <tr>
             <td>${childData.name}</td>
-            <td">${childData.cars_sold}</td>
-            <td>${childData.goal}<td>
+            <td>${childData.cars_sold}</td>
         </tr>
     `);
-
-    console.log(childData.name + ' is Tracking: ' + tracking_sold_math)
-  });
-});
-
-$("#reset_sales_board").on("click", function (event) {
-  event.preventDefault();
-
-  // Grabbed values from text-boxes
-  salesperson = 'This is A';
-  customer = 'Place Holder Until';
-  stock_num = 'We Sell Something';
-  trade = 'TODAY!!!!';
-
-  // Code for "Setting values in the database"
-  dailyBoardRef.child('Placeholder').set({
-    salesperson: salesperson,
-    customer: customer,
-    stock_num: stock_num,
-    trade: trade,
   });
 });
 

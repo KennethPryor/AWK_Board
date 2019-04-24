@@ -67,19 +67,37 @@ $("#add-user").on("click", function (event) {
 
 $("#add-daily_board").on("click", function (event) {
     event.preventDefault();
-  
+
     // Grabbed values from text-boxes
     salesperson = $("#salesperson_name-input").val().trim();
     customer = $("#customer_name-input").val().trim();
     new_or_used = $('#new_or_used-input option:selected').text();
     stock_num = $("#stock_num-input").val().trim();
     trade = $("#trade_in-input").val().trim();
-  
+
     // Code for "Setting values in the database"
     dailyBoardRef.push({
-      salesperson: salesperson,
-      customer: customer,
-      stock_num: stock_num,
-      trade: trade,
+        salesperson: salesperson,
+        customer: customer,
+        stock_num: stock_num,
+        trade: trade,
     });
-  });
+});
+
+$("#reset_sales_board").on("click", function (event) {
+    event.preventDefault();
+
+    // Grabbed values from text-boxes
+    salesperson = 'This is A';
+    customer = 'Place Holder Until';
+    stock_num = 'We Sell Something';
+    trade = 'TODAY!!!!';
+
+    // Code for "Setting values in the database"
+    dailyBoardRef.child('Placeholder').set({
+        salesperson: salesperson,
+        customer: customer,
+        stock_num: stock_num,
+        trade: trade,
+    });
+});
