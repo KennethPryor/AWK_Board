@@ -84,7 +84,7 @@ $("#reset_sales_board").on("click", function (event) {
   trade = 'TODAY!!!!';
 
   // Code for "Setting values in the database"
-  dailyBoardRef.set({
+  dailyBoardRef.child('Placeholder').set({
     salesperson: salesperson,
     customer: customer,
     stock_num: stock_num,
