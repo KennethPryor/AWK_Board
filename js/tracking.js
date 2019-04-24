@@ -10,6 +10,7 @@ console.log(trackingBoardRef);
 // /amount of cars sold
 
 // =tracking number
+
     trackingBoardRef.on("value", function (snapshot) {
     // Tracking New
         let dayDividedByMonth = current_date/days_in_month;

@@ -1,8 +1,6 @@
 $(document).ready(function () {
   $('select').formSelect();
 });
-
-
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyD53WlXc8pGKKZKLtmzlYYqvGgp0FWJA5Q",
@@ -38,6 +36,7 @@ salesBySold.on('value', function (snapshot) {
             <td>${childData.cars_sold}</td>
         </tr>
     `);
+
   });
 });
 
@@ -68,6 +67,24 @@ $("#add-daily_board").on("click", function (event) {
 
   // Code for "Setting values in the database"
   dailyBoardRef.push({
+    salesperson: salesperson,
+    customer: customer,
+    stock_num: stock_num,
+    trade: trade,
+  });
+});
+
+$("#reset_sales_board").on("click", function (event) {
+  event.preventDefault();
+
+  // Grabbed values from text-boxes
+  salesperson = 'This is A';
+  customer = 'Place Holder Until';
+  stock_num = 'We Sell Something';
+  trade = 'TODAY!!!!';
+
+  // Code for "Setting values in the database"
+  dailyBoardRef.set({
     salesperson: salesperson,
     customer: customer,
     stock_num: stock_num,
