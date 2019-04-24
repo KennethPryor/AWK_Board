@@ -3,8 +3,6 @@ var trackingBoardRef = database.ref('tracking_board');
 let current_date = moment().date();
 let days_in_month = moment().daysInMonth();
 
-console.log(trackingBoardRef);
-
 // day of the month/days in the month
 
 // /amount of cars sold

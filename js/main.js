@@ -2,6 +2,9 @@ $(document).ready(function () {
   $('select').formSelect();
 });
 // Initialize Firebase
+
+console.log('This was made by Kenneth Pryor')
+
 var config = {
   apiKey: "AIzaSyD53WlXc8pGKKZKLtmzlYYqvGgp0FWJA5Q",
   authDomain: "awk-board.firebaseapp.com",
@@ -30,47 +33,19 @@ salesBySold.on('value', function (snapshot) {
   snapshot.forEach(function (childSnapshot) {
     var key = childSnapshot.key;
     var childData = childSnapshot.val();
+
+    let dayDividedByMonth = current_date/days_in_month;
+    let tracking_sold_math = childData.cars_sold/dayDividedByMonth;
+
     $('#salesperson_tbody').append(`
         <tr>
             <td>${childData.name}</td>
-            <td>${childData.cars_sold}</td>
+            <td">${childData.cars_sold}</td>
+            <td>${childData.goal}<td>
         </tr>
     `);
 
-  });
-});
-
-// Capture Button Click
-$("#add-user").on("click", function (event) {
-  event.preventDefault();
-
-  // Grabbed values from text-boxes
-  name = $("#name-input").val().trim();
-
-  // Code for "Setting values in the database"
-  salespersonRef.push({
-    name: name,
-    cars_sold: 0,
-  });
-
-});
-
-$("#add-daily_board").on("click", function (event) {
-  event.preventDefault();
-
-  // Grabbed values from text-boxes
-  salesperson = $("#salesperson_name-input").val().trim();
-  customer = $("#customer_name-input").val().trim();
-  new_or_used = $('#new_or_used-input option:selected').text();
-  stock_num = $("#stock_num-input").val().trim();
-  trade = $("#trade_in-input").val().trim();
-
-  // Code for "Setting values in the database"
-  dailyBoardRef.push({
-    salesperson: salesperson,
-    customer: customer,
-    stock_num: stock_num,
-    trade: trade,
+    console.log(childData.name + ' is Tracking: ' + tracking_sold_math)
   });
 });
 
