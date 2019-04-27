@@ -1,7 +1,3 @@
-$(document).one('ready' , function () {
-    TrackingBoardLoad();
-});
-
 var trackingBoardRef = database.ref('tracking_board');
 
 let current_date = moment().date();
@@ -11,8 +7,7 @@ let days_in_month = moment().daysInMonth();
 
 // /amount of cars sold
 
-// =tracking number
-function TrackingBoardLoad() {  
+// =tracking number 
     trackingBoardRef.on("value", function (snapshot) {
     // Tracking New
         let dayDividedByMonth = current_date/days_in_month;
@@ -36,8 +31,6 @@ function TrackingBoardLoad() {
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);
     })
-};
-
 
 trackingBoardRef.on("value", function (snapshot) {
         $("#new-display").text(snapshot.val().new);

@@ -110,42 +110,36 @@ $("#update-sold-counter").on("click", function (event) {
     // });
 });
 
-$('#update_new_used-counter').one('click', function (event) {
+$('#update_new-counter').one('click', function (event) {
     event.preventDefault();
 
        let updated_new_counter = parseInt($('#new_sold-update').val().trim());
-       let updated_used_counter = parseInt($('#used_sold-update').val().trim());
 
-    trackingBoardRef.on("value", function(snapshot) {
-        
-        let current_new_counter = snapshot.val().new;
-        let current_used_counter = snapshot.val().used;
-
+    trackingBoardRef.once("value", function(snapshot) {
         if (updated_new_counter == '') {
-            trackingBoardRef.update({
-                new: current_new_counter,
-            });
+            console.log('New Cars remained the same.')
         } else {
             trackingBoardRef.update({
                 new: updated_new_counter,
             })
         };
+    });
+});
 
-        
+$('#update_used-counter').one('click', function (event) {
+    event.preventDefault();
+
+       let updated_used_counter = parseInt($('#used_sold-update').val().trim());
+     
         if (updated_used_counter == '') {
-            trackingBoardRef.update({
-                used: current_used_counter,
-            });
+            console.log(updated_used_counter);
         } else {
             trackingBoardRef.update({
                 used: updated_used_counter,
             })
         };
-
-        console.log(snapshot.val().new);
-        console.log(snapshot.val().used);
-    });
 });
+
 
 $("#reset_sales_board").on("click", function (event) {
     event.preventDefault();
