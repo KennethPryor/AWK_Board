@@ -56,38 +56,50 @@
                 <tbody id="sp_admin_tbody">
                 </tbody>
             </table>
-            <form class="col s12 m5 z-depth-2 form" id="update_salesperson-form">
+            <div class="col s12 m3">
+            <form class="z-depth-2 form" id="update_salesperson-form">
                 <div class="row">
                     <h6 class="center">Update Salesperson Sold Counter</h6>
-                    <div class="input-field col s7">
+                    <div class="input-field col s8">
                         <input placeholder="Salesperson Name" id="salesperson_name-update" type="text" class="validate">
                         <label for="salesperson_name-update">Salesperson Name</label>
                     </div>
-                    <div class="input-field col s5">
+                    <div class="input-field col s4">
                         <input placeholder="# of Cars Sold" id="salesperson_sold-update" type="number" class="validate">
                         <label for="salesperson_sold-update">Total Cars Sold</label>
                     </div>
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" id="update-sold-counter" name="action">Update</button>
             </form>
-            <form class="col s12 m2 z-depth-2 form" id="update_salesperson-form">
-                <div class="row">
-                    <h6 class="center">New Car Update</h6>
+            <form class="z-depth-2 form" id="sold-form">
+                    <h6 class="center">Create Salesperson</h6>
                     <div class="input-field col s12">
-                        <input placeholder="# of New Cars Sold" id="new_sold-update" type="number" class="validate">
-                        <label for="new_sold-update">New Cars Sold</label>
+                        <input placeholder="Salesperson Name" id="name-input" type="text" class="validate">
+                        <label for="name-input">Name</label>
                     </div>
-                </div>
-                <button class="btn waves-effect waves-light" type="submit" id="update_new-counter">Update</button>
+                <button class="btn waves-effect waves-light" type="submit" id="add-user" name="action">Submit</button>
             </form>
-            <form class="col s12 m2 z-depth-2 form" id="update_salesperson-form">
-                        <h6 class="center">Used Car Update</h6>
+        </div>
+            <div class="col s12 m2">
+                <form class="z-depth-2 form" id="update_salesperson-form">
+                    <div class="row">
+                        <h6 class="center">New Car Update</h6>
                         <div class="input-field col s12">
-                            <input placeholder="# of Used Cars Sold" id="used_sold-update" type="number" class="validate">
-                            <label for="used_sold-update">Used Cars Sold</label>
+                            <input placeholder="# of New Cars Sold" id="new_sold-update" type="number" class="validate">
+                            <label for="new_sold-update">New Cars Sold</label>
                         </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" id="update_new-counter">Update</button>
+                </form>
+                <form class="z-depth-2 form" id="update_salesperson-form">
+                    <h6 class="center">Used Car Update</h6>
+                    <div class="input-field col s12">
+                        <input placeholder="# of Used Cars Sold" id="used_sold-update" type="number" class="validate">
+                        <label for="used_sold-update">Used Cars Sold</label>
+                    </div>
                     <button class="btn waves-effect waves-light" type="submit" id="update_used-counter">Update</button>
                 </form>
+            </div>
             <table class="col s12 m3 striped white" id="total_table">
                 <thead>
                     <tr>
@@ -121,16 +133,6 @@
                 </tbody>
             </table>
         </div>
-        <form class="col s12 m3 z-depth-2 form" id="sold-form">
-            <div class="row">
-                <h6 class="center">Create Salesperson</h6>
-                <div class="input-field col s12">
-                    <input placeholder="Salesperson Name" id="name-input" type="text" class="validate">
-                    <label for="name-input">Name</label>
-                </div>
-            </div>
-            <button class="btn waves-effect waves-light" type="submit" id="add-user" name="action">Submit</button>
-        </form>
     </div>
 </body>
 
