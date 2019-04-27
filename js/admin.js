@@ -51,20 +51,6 @@ salesBySold.on('value', function (snapshot) {
     });
 });
 
-$("#add-user").on("click", function (event) {
-    event.preventDefault();
-
-    // Grabbed values from text-boxes
-    name = $("#name-input").val().trim();
-
-    // Code for "Setting values in the database"
-    salespersonRef.push({
-        name: name,
-        cars_sold: 0,
-    });
-
-});
-
 $("#add-daily_board").on("click", function (event) {
     event.preventDefault();
 
@@ -82,22 +68,98 @@ $("#add-daily_board").on("click", function (event) {
         stock_num: stock_num,
         trade: trade,
     });
+});    
+
+$("#add-user").on("click", function (event) {
+    event.preventDefault();
+
+    // Grabbed values from text-boxes
+    name = $("#name-input").val().trim();
+
+    // Code for "Setting values in the database"
+    salespersonRef.push({
+        name: name,
+        cars_sold: 0,
+    });
+
+});
+
+$("#update-sold-counter").on("click", function (event) {
+    event.preventDefault();
+
+    // Grabbed values from text-boxes
+    name = $("#salesperson_name-update").val().trim();
+    cars_sold_update = $("#salesperson_sold-update").val().trim();
+
+    salespersonRef.orderByChild('name').equalTo(name).on("value", function(snapshot) {
+        snapshot.forEach(function (childSnapshot) {
+            var key = childSnapshot.key;
+            var childData = childSnapshot.val();
+
+            childData.update({
+                cars_sold: cars_sold_update,
+            })
+    });
+    });
+
+    // // Code for "Setting values in the database"
+    // dailyBoardRef.push({
+    //     name: name,
+    //     cars_sold: cars_sold,
+
+    // });
+});
+
+$('#update_new_used-counter').one('click', function (event) {
+    event.preventDefault();
+
+       let updated_new_counter = parseInt($('#new_sold-update').val().trim());
+       let updated_used_counter = parseInt($('#used_sold-update').val().trim());
+
+    trackingBoardRef.on("value", function(snapshot) {
+        
+        let current_new_counter = snapshot.val().new;
+        let current_used_counter = snapshot.val().used;
+
+        if (updated_new_counter == '') {
+            trackingBoardRef.update({
+                new: current_new_counter,
+            });
+        } else {
+            trackingBoardRef.update({
+                new: updated_new_counter,
+            })
+        };
+
+        
+        if (updated_used_counter == '') {
+            trackingBoardRef.update({
+                used: current_used_counter,
+            });
+        } else {
+            trackingBoardRef.update({
+                used: updated_used_counter,
+            })
+        };
+
+        console.log(snapshot.val().new);
+        console.log(snapshot.val().used);
+    });
 });
 
 $("#reset_sales_board").on("click", function (event) {
     event.preventDefault();
 
     // Grabbed values from text-boxes
-    salesperson = 'This is A';
-    customer = 'Place Holder Until';
-    stock_num = 'We Sell Something';
-    trade = 'TODAY!!!!';
+
+    placeholder = '**Do NOT Delete**';
+
+    console.log('Reset Daily Board');
+    console.log(dailyBoardRef.child('Placeholder').salesperson)
 
     // Code for "Setting values in the database"
-    dailyBoardRef.child('Placeholder').set({
-        salesperson: salesperson,
-        customer: customer,
-        stock_num: stock_num,
-        trade: trade,
+
+    dailyBoardRef.set({
+        placeholder: placeholder,
     });
 });

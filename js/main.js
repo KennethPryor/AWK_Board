@@ -3,8 +3,6 @@ $(document).ready(function () {
 });
 // Initialize Firebase
 
-console.log('This was made by Kenneth Pryor')
-
 var config = {
   apiKey: "AIzaSyD53WlXc8pGKKZKLtmzlYYqvGgp0FWJA5Q",
   authDomain: "awk-board.firebaseapp.com",

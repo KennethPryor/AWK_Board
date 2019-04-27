@@ -30,7 +30,7 @@
                                   <option value="used">Used</option>
                                 </select>
                                 <label>New or Used</label>
-                        </div> -->
+                </div> -->
                 <div class="input-field col s6">
                     <input placeholder="012345" id="stock_num-input" type="text" class="validate">
                     <label for="stock_num-input">Stock #</label>
@@ -44,11 +44,12 @@
             <button class="waves-effect waves-light red btn" id="reset_sales_board">Reset Board</button>
         </form>
         <div class="row">
-            <table id="col-index" class="col 12 m3 striped white">
+            <table id="col-index" class="col s12 m3 striped white">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th class="tooltipped" data-position="top" data-tooltip="Red: Tracking is less than Goal. Green: Tracking is greater than Goal.">Units Sold</th>
+                        <th class="tooltipped" data-position="top" data-tooltip="Red: Tracking is less than Goal. Green: Tracking is greater than Goal.">Units
+                            Sold</th>
                         <th>Goal</th>
                     </tr>
                 </thead>
@@ -58,18 +59,63 @@
             <form class="col s12 m5 z-depth-2 form" id="update_salesperson-form">
                 <div class="row">
                     <h6 class="center">Update Salesperson Sold Counter</h6>
-                    <div class="input-field col s6">
-                        <input placeholder="Salesperson/s Name" id="salesperson_name-input" type="text" class="validate">
-                        <label for="salesperson_name-input">Salesperson/s</label>
+                    <div class="input-field col s7">
+                        <input placeholder="Salesperson Name" id="salesperson_name-update" type="text" class="validate">
+                        <label for="salesperson_name-update">Salesperson Name</label>
                     </div>
-                    <div class="input-field col s6">
-                        <select id="salesperson-select">
-                            <option value="0" disabled selected>0</option>
-                        </select>
+                    <div class="input-field col s5">
+                        <input placeholder="# of Cars Sold" id="salesperson_sold-update" type="number" class="validate">
+                        <label for="salesperson_sold-update">Total Cars Sold</label>
                     </div>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" id="add-daily_board" name="action">Submit</button>
+                <button class="btn waves-effect waves-light" type="submit" id="update-sold-counter" name="action">Update</button>
             </form>
+            <form class="col s12 m5 z-depth-2 form" id="update_salesperson-form">
+                <div class="row">
+                    <h6 class="center">Daily Sold/Tracking Update</h6>
+                    <div class="input-field col s6">
+                        <input placeholder="Number of New Cars Sold" id="new_sold-update" type="number" class="validate">
+                        <label for="new_sold-update">New Cars Sold</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Number of Used Cars Sold" id="used_sold-update" type="number" class="validate">
+                        <label for="used_sold-update">Used Cars Sold</label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" id="update_new_used-counter">Update</button>
+            </form>
+            <table class="col s12 m3 striped white" id="total_table">
+                <thead>
+                    <tr>
+                        <th>Type of Cars</th>
+                        <th>Sold</th>
+                        <th>Tracking</th>
+                    </tr>
+                </thead>
+                <tbody id="tracking_board">
+                    <tr>
+                        <td>
+                            New
+                        </td>
+                        <td id="new-display"></td>
+                        <td id="tracking_new-display"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Used
+                        </td>
+                        <td id="used-display"></td>
+                        <td id="tracking_used-display"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Total
+                        </td>
+                        <td id="total_sold-display"></td>
+                        <td id="tracking_total-display"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <form class="col s12 m3 z-depth-2 form" id="sold-form">
             <div class="row">

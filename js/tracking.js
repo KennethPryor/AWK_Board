@@ -1,3 +1,7 @@
+$(document).one('ready' , function () {
+    TrackingBoardLoad();
+});
+
 var trackingBoardRef = database.ref('tracking_board');
 
 let current_date = moment().date();
@@ -8,7 +12,7 @@ let days_in_month = moment().daysInMonth();
 // /amount of cars sold
 
 // =tracking number
-
+function TrackingBoardLoad() {  
     trackingBoardRef.on("value", function (snapshot) {
     // Tracking New
         let dayDividedByMonth = current_date/days_in_month;
@@ -28,15 +32,18 @@ let days_in_month = moment().daysInMonth();
             used: snapshot.val().used,
             total_sold: total_sold_math,
         });
+        // Handle the errors
+    }, function (errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+    })
+};
 
+
+trackingBoardRef.on("value", function (snapshot) {
         $("#new-display").text(snapshot.val().new);
         $("#tracking_new-display").text(snapshot.val().tracking_new);
         $("#used-display").text(snapshot.val().used);
         $("#tracking_used-display").text(snapshot.val().tracking_used);
         $("#total_sold-display").text(snapshot.val().total_sold);
         $("#tracking_total-display").text(snapshot.val().tracking_total);
-
-        // Handle the errors
-    }, function (errorObject) {
-        console.log("Errors handled: " + errorObject.code);
-    })
+});        
