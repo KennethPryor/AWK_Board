@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('select').formSelect();
+    $('select').material_select();
     $('.tooltipped').tooltip();
 });
 
@@ -30,6 +30,19 @@ salesBySold.on('value', function (snapshot) {
         var key = childSnapshot.key;
         var childData = childSnapshot.val();
 
+        $('#salesperson-select')
+            .append($("<option></option>")
+                .attr("value", key)
+                .text(childData.name));
+    });
+});
+
+
+salesBySold.on('value', function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
+        var key = childSnapshot.key;
+        var childData = childSnapshot.val();
+
         let dayDividedByMonth = current_date / days_in_month;
         let tracking_sold_math = childData.cars_sold / dayDividedByMonth;
         var cls = '';
@@ -51,6 +64,7 @@ salesBySold.on('value', function (snapshot) {
     });
 });
 
+
 $("#add-daily_board").on("click", function (event) {
     event.preventDefault();
 
@@ -68,7 +82,7 @@ $("#add-daily_board").on("click", function (event) {
         stock_num: stock_num,
         trade: trade,
     });
-});    
+});
 
 $("#add-user").on("click", function (event) {
     event.preventDefault();
@@ -91,7 +105,7 @@ $("#update-sold-counter").on("click", function (event) {
     name = $("#salesperson_name-update").val().trim();
     cars_sold_update = $("#salesperson_sold-update").val().trim();
 
-    salespersonRef.orderByChild('name').equalTo(name).on("value", function(snapshot) {
+    salespersonRef.orderByChild('name').equalTo(name).on("value", function (snapshot) {
         snapshot.forEach(function (childSnapshot) {
             var key = childSnapshot.key;
             var childData = childSnapshot.val();
@@ -99,7 +113,7 @@ $("#update-sold-counter").on("click", function (event) {
             childData.update({
                 cars_sold: cars_sold_update,
             })
-    });
+        });
     });
 
     // // Code for "Setting values in the database"
@@ -113,9 +127,9 @@ $("#update-sold-counter").on("click", function (event) {
 $('#update_new-counter').one('click', function (event) {
     event.preventDefault();
 
-       let updated_new_counter = parseInt($('#new_sold-update').val().trim());
+    let updated_new_counter = parseInt($('#new_sold-update').val().trim());
 
-    trackingBoardRef.once("value", function(snapshot) {
+    trackingBoardRef.once("value", function (snapshot) {
         if (updated_new_counter == '') {
             console.log('New Cars remained the same.')
         } else {
@@ -129,15 +143,15 @@ $('#update_new-counter').one('click', function (event) {
 $('#update_used-counter').one('click', function (event) {
     event.preventDefault();
 
-       let updated_used_counter = parseInt($('#used_sold-update').val().trim());
-     
-        if (updated_used_counter == '') {
-            console.log(updated_used_counter);
-        } else {
-            trackingBoardRef.update({
-                used: updated_used_counter,
-            })
-        };
+    let updated_used_counter = parseInt($('#used_sold-update').val().trim());
+
+    if (updated_used_counter == '') {
+        console.log(updated_used_counter);
+    } else {
+        trackingBoardRef.update({
+            used: updated_used_counter,
+        })
+    };
 });
 
 
