@@ -44,21 +44,39 @@
                     Board</button>
                 <button class="waves-effect waves-light red btn" id="reset_sales_board">Reset Board</button>
             </form>
-            <form class="col s12 m6 z-depth-2 form" id="update_salesperson-form">
-                <h6 class="center">Update Salesperson Sold Counter</h6>
-                <div class="input-field col s8">
-                        <select id="salesperson-select">
-                          <option value="" disabled selected>Choose your option</option>
+            <div class="col s12 m6">
+                <form class="col s12 z-depth-2 form" id="update_salesperson-form">
+                    <h6 class="center">Update Salesperson Sold Counter</h6>
+                    <div class="input-field col s8">
+                        <select id="salesperson-select-sold" class="salesperson-select">
+                            <option value="" disabled selected>Choose your option</option>
                         </select>
                         <label>Choose Salesperson</label>
-                      </div>
-                <div class="input-field col s4">
-                    <input placeholder="# Sold" id="salesperson_sold-update" type="number" class="validate">
-                    <label for="salesperson_sold-update">Total Cars Sold</label>
-                </div>
-
-                <button class="btn waves-effect waves-light" type="submit" id="update-sold-counter" name="action">Update</button>
-            </form>
+                    </div>
+                    <div class="input-field col s4">
+                        <input placeholder="# Sold" id="salesperson_sold-update" type="number" class="validate">
+                        <label for="salesperson_sold-update">Total Cars Sold</label>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" id="update-sold-counter" name="action">Update</button>
+                    <button class="btn waves-effect waves-light tooltipped red" type="button" id="reset-sold-counter"
+                        name="action" data-position="bottom" data-tooltip="Will Reset All Salespersons to 0. Use with Caution!">Reset
+                        Sold Counters</button>
+                </form>
+                <form class="col s12 z-depth-2 form" id="update_salesperson-form">
+                    <h6 class="center">Update Salesperson Goal</h6>
+                    <div class="input-field col s8">
+                        <select id="salesperson-select-goal" class="salesperson-select">
+                            <option value="" disabled selected>Choose your option</option>
+                        </select>
+                        <label>Choose Salesperson</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input placeholder="Goal" id="salesperson_goal-update" type="number" class="validate">
+                        <label for="salesperson_goal-update">Goal</label>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" id="update-goal-counter" name="action">Update</button>
+                </form>
+            </div>
             <form class="col s12 m5 z-depth-2 form" id="sold-form">
                 <h6 class="center">Create Salesperson</h6>
                 <div class="input-field col s12">

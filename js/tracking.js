@@ -8,7 +8,7 @@ let days_in_month = moment().daysInMonth();
 // /amount of cars sold
 
 // =tracking number 
-    trackingBoardRef.on("value", function (snapshot) {
+    trackingBoardRef.once("value", function (snapshot) {
     // Tracking New
         let dayDividedByMonth = current_date/days_in_month;
         let tracking_new_math = snapshot.val().new/dayDividedByMonth;
