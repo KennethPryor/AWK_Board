@@ -165,16 +165,18 @@ $("#update-goal-counter").on("click", function (event) {
 
 $("#reset-sold-counter").on("click", function (event) {
     event.preventDefault();
-    salesBySold.on("value", function (snapshot) {
-        snapshot.forEach(function (childSnapshot) {
-            var key = childSnapshot.key;
-            var childData = childSnapshot.val();
+    if (window.confirm('This will Reset all Salesman back to 0. Are you sure you want to Reset? ')) {
+        salesBySold.on("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                var key = childSnapshot.key;
+                var childData = childSnapshot.val();
 
-            salespersonRef.child(key).update({
-                cars_sold: 0,
+                salespersonRef.child(key).update({
+                    cars_sold: 0,
+                });
             });
         });
-    });
+    };
 });
 
 $("#update_new-counter").one("click", function (event) {
