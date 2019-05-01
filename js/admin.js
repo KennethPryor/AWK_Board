@@ -62,7 +62,6 @@ salesBySold.on("value", function (snapshot) {
 
 salesBySold.on("value", function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
-        var key = childSnapshot.key;
         var childData = childSnapshot.val();
 
         let dayDividedByMonth = current_date / days_in_month;
@@ -89,10 +88,8 @@ salesBySold.on("value", function (snapshot) {
 $("#add-daily_board").on("click", function (event) {
     event.preventDefault();
 
-    // Grabbed values from text-boxes
-    salesperson = $("#salesperson_name-input")
-        .val()
-        .trim();
+    salesperson = $("#salesperson-select-daily")
+        .val();
     customer = $("#customer_name-input")
         .val()
         .trim();
@@ -104,7 +101,6 @@ $("#add-daily_board").on("click", function (event) {
         .val()
         .trim();
 
-    // Code for "Setting values in the database"
     dailyBoardRef.push({
         salesperson: salesperson,
         customer: customer,
@@ -116,12 +112,10 @@ $("#add-daily_board").on("click", function (event) {
 $("#add-user").on("click", function (event) {
     event.preventDefault();
 
-    // Grabbed values from text-boxes
     name = $("#name-input")
         .val()
         .trim();
 
-    // Code for "Setting values in the database"
     salespersonRef.push({
         name: name,
         cars_sold: 0
@@ -131,7 +125,6 @@ $("#add-user").on("click", function (event) {
 $("#update-sold-counter").on("click", function (event) {
     event.preventDefault();
 
-    // Grabbed values from text-boxes
     name = $("#salesperson-select-sold")
         .val();
     cars_sold_update = $("#salesperson_sold-update")
@@ -159,8 +152,6 @@ $("#update-goal-counter").on("click", function (event) {
     salespersonRef.child(name).update({
         goal: goal_update,
     });
-
-    console.log('Name: ' + name + ' Goal: ' + goal_update)
 });
 
 $("#reset-sold-counter").on("click", function (event) {
@@ -169,7 +160,6 @@ $("#reset-sold-counter").on("click", function (event) {
         salesBySold.on("value", function (snapshot) {
             snapshot.forEach(function (childSnapshot) {
                 var key = childSnapshot.key;
-                var childData = childSnapshot.val();
 
                 salespersonRef.child(key).update({
                     cars_sold: 0,
@@ -220,14 +210,7 @@ $("#update_used-counter").one("click", function (event) {
 $("#reset_sales_board").on("click", function (event) {
     event.preventDefault();
 
-    // Grabbed values from text-boxes
-
     placeholder = "**Do NOT Delete**";
-
-    console.log("Reset Daily Board");
-    console.log(dailyBoardRef.child("Placeholder").salesperson);
-
-    // Code for "Setting values in the database"
 
     dailyBoardRef.set({
         placeholder: placeholder

@@ -29,7 +29,6 @@ var salesBySold = salespersonRef.orderByChild('cars_sold');
 
 salesBySold.on('value', function (snapshot) {
   snapshot.forEach(function (childSnapshot) {
-    var key = childSnapshot.key;
     var childData = childSnapshot.val();
 
     $('#salesperson_tbody').append(`
