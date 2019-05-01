@@ -46,17 +46,18 @@ salesBySold.on("value", function (snapshot) {
         var childData = childSnapshot.val();
 
         /* I added a function to encapsulate appending options to #salesperson-select named createOptions() here. */
-        createOptions(childData);
+        createOptions(key, childData);
         /* The $.holdReady method is set to false here. */
         $.holdReady(false);
         /* Defined createOptions() here. */
-        function createOptions(childData) {
+        function createOptions(key , childData) {
             $(".salesperson-select").append(
                 $("<option></option>")
-                    .attr("value", childData.name)
+                    .attr("value", key)
                     .text(childData.name)
             );
         }
+
     });
 });
 
@@ -86,6 +87,22 @@ salesBySold.on("value", function (snapshot) {
 });
 
 
+// I need this to only run once and not crash my server and just keep adding 1
+function updateSalesperson() {
+        
+    var salespersonRefSelect = database.ref("Salespersons/" + salesperson);
+
+    salespersonRefSelect.on('value', function (snapshot) {
+        var salespersonData = snapshot.val();
+
+        let cars_sold_update = parseInt(salespersonData.cars_sold) + 1;
+
+        salespersonRefSelect.update({
+            cars_sold: cars_sold_update,
+        });        
+    })
+};
+
 $("#add-daily_board").one("click", function (event) {
     event.preventDefault();
 
@@ -108,6 +125,8 @@ $("#add-daily_board").one("click", function (event) {
         stock_num: stock_num,
         trade: trade
     });
+
+    // updateSalesperson()
 });
 
 
