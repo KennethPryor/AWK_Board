@@ -46,14 +46,14 @@ salesBySold.on("value", function (snapshot) {
         var childData = childSnapshot.val();
 
         /* I added a function to encapsulate appending options to #salesperson-select named createOptions() here. */
-        createOptions(key, childData);
+        createOptions(childData);
         /* The $.holdReady method is set to false here. */
         $.holdReady(false);
         /* Defined createOptions() here. */
-        function createOptions(key, childData) {
+        function createOptions(childData) {
             $(".salesperson-select").append(
                 $("<option></option>")
-                    .attr("value", key)
+                    .attr("value", childData.name)
                     .text(childData.name)
             );
         }
@@ -85,7 +85,8 @@ salesBySold.on("value", function (snapshot) {
     });
 });
 
-$("#add-daily_board").on("click", function (event) {
+
+$("#add-daily_board").one("click", function (event) {
     event.preventDefault();
 
     salesperson = $("#salesperson-select-daily")
@@ -108,6 +109,7 @@ $("#add-daily_board").on("click", function (event) {
         trade: trade
     });
 });
+
 
 $("#add-user").on("click", function (event) {
     event.preventDefault();
@@ -132,7 +134,7 @@ $("#update-sold-counter").on("click", function (event) {
         .trim();
 
     salespersonRef.child(name).update({
-        cars_sold: cars_sold_update
+        cars_sold: cars_sold_update,
     });
 
     console.log('Name: ' + name + ' Cars Sold: ' + cars_sold_update)
