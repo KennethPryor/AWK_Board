@@ -44,11 +44,16 @@ salesBySold.on("value", function (snapshot) {
         var key = childSnapshot.key;
 
         var childData = childSnapshot.val();
-
+        // console.log("childData");
+        // console.log(childData);
         /* I added a function to encapsulate appending options to #salesperson-select named createOptions() here. */
         createOptions(key, childData);
+        
+        
+        
         /* The $.holdReady method is set to false here. */
         $.holdReady(false);
+        
         /* Defined createOptions() here. */
         function createOptions(key , childData) {
             $(".salesperson-select").append(
@@ -57,8 +62,9 @@ salesBySold.on("value", function (snapshot) {
                     .text(childData.name)
             );
         }
-
+       
     });
+    
 });
 
 salesBySold.on("value", function (snapshot) {
@@ -107,7 +113,7 @@ function updateSalesperson() {
         console.log(salespersonData);
         console.log("I'm Executing updateSalesperson function!");
 };
-/*Where is this element you are getting on 110 I can't find it*/
+
 $("#add-daily_board").on("click", function (event) {
     event.preventDefault();
 
@@ -155,16 +161,33 @@ $("#update-sold-counter").on("click", function (event) {
 
     name = $("#salesperson-select-sold")
         .val();
+        // CONSOLE TESTING
+        console.log("name");
+        console.log(name);
+        console.log("typeof name");
+        console.log(typeof(name));
     cars_sold_update = $("#salesperson_sold-update")
         .val()
         .trim();
-
+        //CONSOLE TESTING
+        console.log("cars_sold_update");
+        console.log(cars_sold_update);
+        console.log("typeof cars_sold_update");
+        console.log(typeof(cars_sold_update));
+        console.log("salespersonRef.child(name)");
+        console.log(salespersonRef.child(name));
+        console.log("salespersonRef.child(name).hasOwnProperty(cars_sold)");
+        console.log(salespersonRef.child(name).hasOwnProperty(cars_sold));
+        
+     // name has no cars_sold property not sure what 181-183 is trying to do here.
     salespersonRef.child(name).update({
         cars_sold: cars_sold_update,
     });
-
+    //CONSOLE TESTING
+    console.log("salespersonRef.child(name).hasOwnProperty(cars_sold)");
+    console.log(salespersonRef.child(name).hasOwnProperty(cars_sold));
     console.log('Name: ' + name + ' Cars Sold: ' + cars_sold_update)
-    console.log("I'm Executing update-sold-counter elements on click event");
+    console.log("I'm Executing update-sold-counter element on click event");
 });
 
 
@@ -172,15 +195,15 @@ $("#update-goal-counter").on("click", function (event) {
     event.preventDefault();
 
     // Grabbed values from text-boxes
-    name = $("#salesperson-select-goal")
-        .val();
-    goal_update = $("#salesperson_goal-update")
-        .val()
-        .trim();
+    // name = $("#salesperson-select-goal")
+    //     .val();
+    // goal_update = $("#salesperson_goal-update")
+    //     .val()
+    //     .trim();
 
-    salespersonRef.child(name).update({
-        goal: goal_update,
-    });
+    // salespersonRef.child(name).update({
+    //     goal: goal_update,
+    // });
     console.log("I'm Executing update-goal-counter elements on click event");
 });
 
