@@ -86,7 +86,7 @@ salesBySold.on("value", function (snapshot) {
     });
 });
 
-
+console.log("I'm Executing Globally!");
 // I need this to only run once and not crash my server and just keep adding 1
 function updateSalesperson() {
         
@@ -94,6 +94,8 @@ function updateSalesperson() {
 
     salespersonRefSelect.on('value', function (snapshot) {
         var salespersonData = snapshot.val();
+        console.log("salespersonData");
+        console.log(salespersonData);
 
         let cars_sold_update = parseInt(salespersonData.cars_sold) + 1;
 
@@ -101,9 +103,12 @@ function updateSalesperson() {
             cars_sold: cars_sold_update,
         });        
     })
+    console.log("salespersonData");
+        console.log(salespersonData);
+        console.log("I'm Executing updateSalesperson function!");
 };
-
-$("#add-daily_board").one("click", function (event) {
+/*Where is this element you are getting on 110 I can't find it*/
+$("#add-daily_board").on("click", function (event) {
     event.preventDefault();
 
     salesperson = $("#salesperson-select-daily")
@@ -126,7 +131,8 @@ $("#add-daily_board").one("click", function (event) {
         trade: trade
     });
 
-    // updateSalesperson()
+     updateSalesperson();
+     console.log("I'm Executing add-daily_board elements on click event");
 });
 
 
@@ -141,6 +147,7 @@ $("#add-user").on("click", function (event) {
         name: name,
         cars_sold: 0
     });
+    console.log("I'm Executing add-user elements on click event");
 });
 
 $("#update-sold-counter").on("click", function (event) {
@@ -157,6 +164,7 @@ $("#update-sold-counter").on("click", function (event) {
     });
 
     console.log('Name: ' + name + ' Cars Sold: ' + cars_sold_update)
+    console.log("I'm Executing update-sold-counter elements on click event");
 });
 
 
@@ -173,6 +181,7 @@ $("#update-goal-counter").on("click", function (event) {
     salespersonRef.child(name).update({
         goal: goal_update,
     });
+    console.log("I'm Executing update-goal-counter elements on click event");
 });
 
 $("#reset-sold-counter").on("click", function (event) {
@@ -188,6 +197,7 @@ $("#reset-sold-counter").on("click", function (event) {
             });
         });
     };
+    console.log("I'm Executing reset-sold-counter elements on click event");
 });
 
 $("#update_new-counter").one("click", function (event) {
@@ -208,6 +218,7 @@ $("#update_new-counter").one("click", function (event) {
             });
         }
     });
+    console.log("I'm Executing update_new-counter elements ONE click event");
 });
 
 $("#update_used-counter").one("click", function (event) {
@@ -226,6 +237,7 @@ $("#update_used-counter").one("click", function (event) {
             used: updated_used_counter
         });
     }
+    console.log("I'm Executing update_used-counter elements one click event");
 });
 
 $("#reset_sales_board").on("click", function (event) {
@@ -236,4 +248,5 @@ $("#reset_sales_board").on("click", function (event) {
     dailyBoardRef.set({
         placeholder: placeholder
     });
+    console.log("I'm Executing reset_sales_board elements one click event");
 });
