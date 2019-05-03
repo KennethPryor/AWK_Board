@@ -3,15 +3,18 @@ $(document).ready(function () {
 });
 // Initialize Firebase
 
-var config = {
-  apiKey: "AIzaSyD53WlXc8pGKKZKLtmzlYYqvGgp0FWJA5Q",
-  authDomain: "awk-board.firebaseapp.com",
-  databaseURL: "https://awk-board.firebaseio.com",
-  projectId: "awk-board",
-  storageBucket: "awk-board.appspot.com",
-  messagingSenderId: "736569817172"
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyA-yBlTzATI4ka-1UBCTn_dHYWTBV3g3e4",
+  authDomain: "awk-board-93e81.firebaseapp.com",
+  databaseURL: "https://awk-board-93e81.firebaseio.com",
+  projectId: "awk-board-93e81",
+  storageBucket: "awk-board-93e81.appspot.com",
+  messagingSenderId: "290454024389",
+  appId: "1:290454024389:web:3105b617a373f845"
 };
-firebase.initializeApp(config);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 var database = firebase.database();
 

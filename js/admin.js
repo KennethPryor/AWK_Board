@@ -15,17 +15,20 @@ $(document).ready(function () {
 /* $.holdReady method set to true here. */
 $.holdReady(true);
 
-console.log("This was made by Kenneth Pryor and assisted by Jesse Schimmel.");
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA-yBlTzATI4ka-1UBCTn_dHYWTBV3g3e4",
+    authDomain: "awk-board-93e81.firebaseapp.com",
+    databaseURL: "https://awk-board-93e81.firebaseio.com",
+    projectId: "awk-board-93e81",
+    storageBucket: "awk-board-93e81.appspot.com",
+    messagingSenderId: "290454024389",
+    appId: "1:290454024389:web:3105b617a373f845"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-var config = {
-    apiKey: "AIzaSyD53WlXc8pGKKZKLtmzlYYqvGgp0FWJA5Q",
-    authDomain: "awk-board.firebaseapp.com",
-    databaseURL: "https://awk-board.firebaseio.com",
-    projectId: "awk-board",
-    storageBucket: "awk-board.appspot.com",
-    messagingSenderId: "736569817172"
-};
-firebase.initializeApp(config);
+console.log("This was made by Kenneth Pryor and assisted by Jesse Schimmel.");
 
 var database = firebase.database();
 
@@ -130,32 +133,33 @@ $("#add-daily_board").one("click", function (event) {
 });
 
 
-// $("#add-user").on("click", function (event) {
-//     event.preventDefault();
+$("#add-user").on("click", function (event) {
+    event.preventDefault();
 
-//     name = $("#name-input")
-//         .val()
-//         .trim();
+    name = $("#name-input")
+        .val()
+        .trim();
 
-//     salespersonRef.push({
-//         name: name,
-//         cars_sold: 0,
-//         goal: 5,
-//     });
-// });
+    salespersonRef.push({
+        name: name,
+        cars_sold: 0,
+        goal: 5,
+    });
+});
 
-// $("#update-sold-counter").one("click", function (event) {
-//     event.preventDefault();
+$("#update-sold-counter").one("click", function (event) {
+    event.preventDefault();
 
-//     name = $("#salesperson-select-sold")
-//         .val();
-//     cars_sold_update = $("#salesperson_sold-update")
-//         .val()
-//         .trim();
+    name = $("#salesperson-select-sold")
+        .val();
+    cars_sold_update = $("#salesperson_sold-update")
+        .val()
+        .trim();
 
-//     salespersonRef.child(name).update({
-//         cars_sold: cars_sold_update,
-// 
+    salespersonRef.child(name).update({
+        cars_sold: cars_sold_update,
+    });
+});    
 
 $("#update-goal-counter").on("click", function (event) {
     event.preventDefault();
@@ -172,20 +176,20 @@ $("#update-goal-counter").on("click", function (event) {
     });
 });
 
-// $("#reset-sold-counter").on("click", function (event) {
-//     event.preventDefault();
-//     if (window.confirm('This will Reset all Salesman back to 0. Are you sure you want to Reset? ')) {
-//         salesBySold.on("value", function (snapshot) {
-//             snapshot.forEach(function (childSnapshot) {
-//                 var key = childSnapshot.key;
+$("#reset-sold-counter").on("click", function (event) {
+    event.preventDefault();
+    if (window.confirm('This will Reset all Salesman back to 0. Are you sure you want to Reset? ')) {
+        salesBySold.on("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                var key = childSnapshot.key;
 
-//                 salespersonRef.child(key).update({
-//                     cars_sold: 0,
-//                 });
-//             });
-//         });
-//     };
-// });
+                salespersonRef.child(key).update({
+                    cars_sold: 0,
+                });
+            });
+        });
+    };
+});
 
 $("#update_new-counter").one("click", function (event) {
     event.preventDefault();
