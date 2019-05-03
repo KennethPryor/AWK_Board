@@ -88,20 +88,20 @@ salesBySold.on("value", function (snapshot) {
 
 
 // I need this to only run once and not crash my server and just keep adding 1
-function updateSalesperson() {
+// function updateSalesperson() {
         
-    var salespersonRefSelect = database.ref("Salespersons/" + salesperson);
+//     var salespersonRefSelect = database.ref("Salespersons/" + salesperson);
 
-    salespersonRefSelect.on('value', function (snapshot) {
-        var salespersonData = snapshot.val();
+//     salespersonRefSelect.on('value', function (snapshot) {
+//         var salespersonData = snapshot.val();
 
-        let cars_sold_update = parseInt(salespersonData.cars_sold) + 1;
+//         let cars_sold_update = parseInt(salespersonData.cars_sold) + 1;
 
-        salespersonRefSelect.update({
-            cars_sold: cars_sold_update,
-        });        
-    })
-};
+//         salespersonRefSelect.update({
+//             cars_sold: cars_sold_update,
+//         });        
+//     })
+// };
 
 $("#add-daily_board").one("click", function (event) {
     event.preventDefault();
@@ -130,35 +130,32 @@ $("#add-daily_board").one("click", function (event) {
 });
 
 
-$("#add-user").on("click", function (event) {
-    event.preventDefault();
+// $("#add-user").on("click", function (event) {
+//     event.preventDefault();
 
-    name = $("#name-input")
-        .val()
-        .trim();
+//     name = $("#name-input")
+//         .val()
+//         .trim();
 
-    salespersonRef.push({
-        name: name,
-        cars_sold: 0
-    });
-});
+//     salespersonRef.push({
+//         name: name,
+//         cars_sold: 0,
+//         goal: 5,
+//     });
+// });
 
-$("#update-sold-counter").on("click", function (event) {
-    event.preventDefault();
+// $("#update-sold-counter").one("click", function (event) {
+//     event.preventDefault();
 
-    name = $("#salesperson-select-sold")
-        .val();
-    cars_sold_update = $("#salesperson_sold-update")
-        .val()
-        .trim();
+//     name = $("#salesperson-select-sold")
+//         .val();
+//     cars_sold_update = $("#salesperson_sold-update")
+//         .val()
+//         .trim();
 
-    salespersonRef.child(name).update({
-        cars_sold: cars_sold_update,
-    });
-
-    console.log('Name: ' + name + ' Cars Sold: ' + cars_sold_update)
-});
-
+//     salespersonRef.child(name).update({
+//         cars_sold: cars_sold_update,
+// 
 
 $("#update-goal-counter").on("click", function (event) {
     event.preventDefault();
@@ -175,20 +172,20 @@ $("#update-goal-counter").on("click", function (event) {
     });
 });
 
-$("#reset-sold-counter").on("click", function (event) {
-    event.preventDefault();
-    if (window.confirm('This will Reset all Salesman back to 0. Are you sure you want to Reset? ')) {
-        salesBySold.on("value", function (snapshot) {
-            snapshot.forEach(function (childSnapshot) {
-                var key = childSnapshot.key;
+// $("#reset-sold-counter").on("click", function (event) {
+//     event.preventDefault();
+//     if (window.confirm('This will Reset all Salesman back to 0. Are you sure you want to Reset? ')) {
+//         salesBySold.on("value", function (snapshot) {
+//             snapshot.forEach(function (childSnapshot) {
+//                 var key = childSnapshot.key;
 
-                salespersonRef.child(key).update({
-                    cars_sold: 0,
-                });
-            });
-        });
-    };
-});
+//                 salespersonRef.child(key).update({
+//                     cars_sold: 0,
+//                 });
+//             });
+//         });
+//     };
+// });
 
 $("#update_new-counter").one("click", function (event) {
     event.preventDefault();
