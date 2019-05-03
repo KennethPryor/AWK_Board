@@ -17,7 +17,7 @@ $.holdReady(true);
 
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: FirebaseAPIKey,
+    apiKey: "AIzaSyA-yBlTzATI4ka-1UBCTn_dHYWTBV3g3e4",
     authDomain: "awk-board-93e81.firebaseapp.com",
     databaseURL: "https://awk-board-93e81.firebaseio.com",
     projectId: "awk-board-93e81",
