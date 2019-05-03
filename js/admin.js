@@ -109,8 +109,7 @@ salesBySold.on("value", function (snapshot) {
 $("#add-daily_board").one("click", function (event) {
     event.preventDefault();
 
-    salesperson = $("#salesperson-select-daily")
-        .val();
+    salesperson = $("#salesperson-select-daily option:selected").text();
     customer = $("#customer_name-input")
         .val()
         .trim();
